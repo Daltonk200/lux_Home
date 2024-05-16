@@ -1,13 +1,18 @@
 import React from 'react'
 import Sidebar from '@/components/NavBar/Sidebar/Sidebar'
+import Main from '@/components/Main/Main'
+import Categories from '@/components/Categories/Categories'
+
+
 
 export default function page() {
   return (
-      <main className='flex w-full h-96'>
+    <>
+    <Categories/>
+      <main className='flex w-full h-[80vh] mt-[19vh] '>
          <Sidebar/>
-         <div className="flex-1 bg-red-400 p-4">
-        {/* Main section content */}
-      </div>
+         <Main/>
       </main> 
+      </>
  )
 }

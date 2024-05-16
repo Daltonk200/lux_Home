@@ -6,7 +6,7 @@ import * as SignIn from '@clerk/elements/sign-in'
 export default function SignInPage() {
   return (
     
-
+  <section className='bg-custom-bg bg-cover bg-center flex items-center justify-center w-full h-screen '>  
     <SignIn.Root>
       <SignIn.Step name="start"
        className="py-10 px-8  border space-y-6 bg-white/10 backdrop-blur-lg rounded-lg shadow-lg p-8 w-96"
@@ -37,6 +37,15 @@ export default function SignInPage() {
         <SignIn.Action submit 
          className="bg-red-500 text-white rounded-md py-1.5 px-2.5 w-full"
         >Continue</SignIn.Action>
+        <p className="text-center text-sm ">
+            No account?{' '}
+            <a
+              href="sign-up"
+              className="font-medium text-red-400 decoration-red-950/20 underline-offset-4 outline-none hover:text-red-700 hover:underline focus-visible:underline"
+            >
+              Create an account
+            </a>
+          </p>
       </SignIn.Step>
 
       <SignIn.Step name="verifications" 
@@ -117,6 +126,6 @@ export default function SignInPage() {
         <SignIn.Action submit>Reset password</SignIn.Action>
       </SignIn.Step>
     </SignIn.Root>
-    
+    </section>  
   )
 }

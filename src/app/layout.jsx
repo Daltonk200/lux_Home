@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         <body className={font.className}>
           {/* !hideNavBar &&  <NavBar/>}*/}
           <NavBar />
-          <div className='min-h-screen flex justify-center items-center border  border-red-800'>
+          <div className='min-h-screen flex flex-col   border  border-red-800'>
           {children}
           </div>
         </body>

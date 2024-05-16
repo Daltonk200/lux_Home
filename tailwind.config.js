@@ -11,7 +11,8 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-          "custom-bg": "url('/bg-img.jpg)",
+          "custom-bg": "url('/bg-img.jpg')",
+          "home-bg": "url('/4.jpg')",
       },
     },
   },
