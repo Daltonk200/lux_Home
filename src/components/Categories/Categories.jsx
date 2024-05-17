@@ -25,11 +25,11 @@ export default function Categories() {
    items-center
     w-full
     h-[8vh]
-    mt-[10vh]
+    mt-[11vh]
     fixed
     py-5
     px-6
-    bg-green-500
+   
     
     lg:px-8 
     p-6  
@@ -40,28 +40,32 @@ export default function Categories() {
      border-b-gray-100
     '>
 <i className="fa-regular fa-map bg-gray-500 p-2 rounded-lg"/>
-<div className='flex border-2 border-red-300'>
+<div className='flex transition p-3 rounded-xl hover:bg-white/90'>
   <div className="
- bg-gray-400
-  mr-3
+ bg-white/90
+ mr-3
   rounded-lg
   px-2
   py-1
+  text-black
+  
 ">
   Anything
-  <i class="fa-solid fa-chevron-down"></i>  
+  <i class="fa-solid fa-chevron-down ml-4"></i>  
 </div>  
-<input type="date" className='text-black mr-2 bg-gray-400 rounded-lg'/>
+<input type="date" className='text-black mr-2  bg-white/90 rounded-lg'/>
  
  <div className='
- bg-gray-400
+ bg-white/90
  flex
  justify-between
  items-center
  px-2
+ rounded-lg
+ text-black
  '>
     <span onClick={substract} className='px-2  rounded-lg text-red-400 bg-white mr-1 cursor-pointer'>-</span>
-    <span>{count}guests</span>
+    <span>{count} guests</span>
     <span onClick={add} className='px-2  rounded-lg text-red-400 bg-white ml-1 cursor-pointer'>+</span>
  </div>
 

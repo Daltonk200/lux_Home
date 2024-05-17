@@ -68,23 +68,25 @@ export default function SignInPage() {
         </SignIn.Strategy>
 
         <SignIn.Strategy name="password">
-          <h1>Enter your password</h1>
+          <h1 className='text-center mb-3'>Enter your password</h1>
 
           <Clerk.Field name="password" className="space-y-2">
             <Clerk.Label className="text-sm font-medium">Password</Clerk.Label>
-            <Clerk.Input className="w-full border rounded-md py-1.5 px-2.5 text-gray-300"/>
+            <Clerk.Input className="w-full border rounded-md py-1.5 px-2.5 text-black"/>
             <Clerk.FieldError className="block text-red-500 text-sm" />
           </Clerk.Field>
 
-          <SignIn.Action submit>Continue</SignIn.Action>
-          <SignIn.Action navigate="forgot-password">
+          <SignIn.Action submit
+          className="bg-red-500 text-white rounded-md py-1.5 px-2.5 w-full"
+          >Continue</SignIn.Action>
+          <SignIn.Action className="text-[#8c81f3] hover:underline" navigate="forgot-password" >
             Forgot password?
           </SignIn.Action>
         </SignIn.Strategy>
 
         <SignIn.Strategy name="reset_password_email_code">
-          <h1>Check your email</h1>
-          <p>We sent a code to <SignIn.SafeIdentifier />.</p>
+          <h1 className='text-center mb-3'>Check your email</h1>
+          <p className='text-center text-2xl'>We sent a code to <SignIn.SafeIdentifier />.</p>
 
           <Clerk.Field name="code" className="space-y-2">
             <Clerk.Label className="text-sm font-medium">Email code</Clerk.Label>
@@ -98,18 +100,22 @@ export default function SignInPage() {
         </SignIn.Strategy>
       </SignIn.Step>
 
-      <SignIn.Step name="forgot-password">
-        <h1>Forgot your password?</h1>
+      <SignIn.Step name="forgot-password"
+         className="py-10 px-8  border space-y-6 bg-white/10 backdrop-blur-lg rounded-lg shadow-lg p-8 w-96"
+      >
+        <h1 className='text-center mb-3'>Forgot your password?</h1>
 
-        <SignIn.SupportedStrategy name="reset_password_email_code">
+        <SignIn.SupportedStrategy name="reset_password_email_code" className='bg-red-500 text-white rounded-md py-1.5 px-2.5 w-full'>
           Reset password
         </SignIn.SupportedStrategy>
 
-        <SignIn.Action navigate="previous">Go back</SignIn.Action>
+        <SignIn.Action navigate="previous" className='hover:underline'>Go back</SignIn.Action>
       </SignIn.Step>
 
-      <SignIn.Step name="reset-password">
-        <h1>Reset your password</h1>
+      <SignIn.Step name="reset-password"   
+      className="py-10 px-8  border space-y-6 bg-white/10 backdrop-blur-lg rounded-lg shadow-lg p-8 w-96"
+      >
+        <h1 className='text-center mb-3'>Reset your password</h1>
 
         <Clerk.Field name="password" className="space-y-2">
           <Clerk.Label className="text-sm font-medium">New password</Clerk.Label>
@@ -123,7 +129,9 @@ export default function SignInPage() {
           <Clerk.FieldError className="block text-red-500 text-sm"/>
         </Clerk.Field>
 
-        <SignIn.Action submit>Reset password</SignIn.Action>
+        <SignIn.Action submit
+         className='bg-red-500 text-white rounded-md py-1.5 px-2.5 w-full'
+        >Reset password</SignIn.Action>
       </SignIn.Step>
     </SignIn.Root>
     </section>  

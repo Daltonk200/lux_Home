@@ -18,8 +18,26 @@ const Sidebar = () => {
           <i className=' flex fa-solid fa-house w-8 h-8 items-center'></i>
 
             {/* <img src="/icon1.svg" alt="Icon 1" className="  w-8 h-8" /> */}
-            {isHovered && <span className="text-white">Home</span>}
+            {isHovered && <span className="text-white ml-3">Home</span>}
           </div>
+
+          <div className="my-2  flex justify-center items-center hover:outline rounded">
+          <i className=' flex fa-solid fa-house w-8 h-8 items-center'></i>
+            {/* <img src="/icon2.svg" alt="Icon 2"  /> */}
+            {isHovered && <span className="text-white ml-3">HOME</span>}
+          </div>
+
+          <div className="my-2  flex justify-center items-center hover:outline rounded">
+          <i className=' flex fa-solid fa-house w-8 h-8 items-center'></i>
+            {/* <img src="/icon2.svg" alt="Icon 2"  /> */}
+            {isHovered && <span className="text-white ml-3">HOME</span>}
+          </div>
+          <div className="my-2  flex justify-center items-center hover:outline rounded">
+          <i className=' flex fa-solid fa-house w-8 h-8 items-center'></i>
+            {/* <img src="/icon2.svg" alt="Icon 2"  /> */}
+            {isHovered && <span className="text-white ml-3">HOME</span>}
+          </div>
+
           <div className="my-2  flex justify-center items-center hover:outline rounded">
           <i className=' flex fa-solid fa-house w-8 h-8 items-center'></i>
             {/* <img src="/icon2.svg" alt="Icon 2"  /> */}
