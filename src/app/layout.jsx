@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={font.className}>
           {/* !hideNavBar &&  <NavBar/>}*/}
-          <NavBar />
+          
           <div className='min-h-screen flex flex-col   '>
           {children}
           </div>

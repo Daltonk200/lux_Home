@@ -13,7 +13,7 @@ export default function NotFound() {
         <div class="text-center mb-8">
             <h1 class="text-4xl font-bold ">Oops... we have <span class="text-red-400">a problem</span> here</h1>
             <h2 class="text-9xl font-extrabold ">4<span className='text-red-400'>0</span>4</h2>
-            <a href="#" class="mt-4 inline-block px-6 py-2 bg-red-400 text-white rounded-full hover:bg-red-500">Back home</a>
+            <a href="/" class="mt-4 inline-block px-6 py-2 bg-red-400 text-white rounded-full hover:bg-red-500">Back home</a>
         </div>
 
         <div class="mb-8  a top-5 right-1 -z-5">

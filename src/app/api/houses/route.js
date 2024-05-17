@@ -1,4 +1,7 @@
 export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const id = searchParams.get('id');
+  
   const houses = [
     {
       id: 1,
@@ -274,9 +277,19 @@ export async function GET(request) {
       rating: 4.7,
       host: "Serene Escapes",
       amenities: ["Kayaks", "Fishing gear", "Bonfire pit"],
-      price_per_night: 150
+      price_per_night: 150,
     }
   ];
+
+  if (id) {
+    const house = houses.find(h => h.id === parseInt(id));
+    if (house) {
+      return new Response(JSON.stringify(house), { status: 200 });
+    } else {
+      return new Response(JSON.stringify({ error: 'House not found' }), { status: 404 });
+    }
+  }
+
   return new Response(JSON.stringify(houses), { status: 200 });
 }
 

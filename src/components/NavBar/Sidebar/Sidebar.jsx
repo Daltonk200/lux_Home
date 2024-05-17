@@ -7,7 +7,7 @@ const Sidebar = () => {
   return (
     <>
       <div
-        className={`w-16 h-full bg-gray-800 transition-all duration-300  ${
+        className={`w-16 h-full bg-gray-800  transition-all duration-300  ${
           isHovered ? 'w-48' : ''
         }`}
         onMouseEnter={() => setIsHovered(true)}
