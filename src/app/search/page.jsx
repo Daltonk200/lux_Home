@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <div className="container mx-auto p-4 ">
       <h1 className="text-3xl font-bold mb-6">Available Houses</h1>
-      <div className="mb-4 flex outline">
+      <div className="mb-4 flex outline justify-between items-center">
         <input
           type="text"
           value={search}
@@ -56,7 +56,7 @@ export default function Home() {
           value={filter.location}
           onChange={handleFilterChange}
           placeholder="Filter by location"
-          className="w-full border p-2 rounded-lg mb-2 text-black"
+          className=" border p-2 rounded-lg mb-2 text-black"
         />
         <input
           type="number"
@@ -64,10 +64,23 @@ export default function Home() {
           value={filter.price}
           onChange={handleFilterChange}
           placeholder="Filter by max price"
-          className="w-full border p-2 rounded-lg text-black"
+          className=" border p-2 rounded-lg text-black"
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className='h-screen overflow-y-scroll container'>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">{
+        filteredHouses.length === 0?(
+          <div style={{
+            height:"80vh",
+            width:"100vw",
+            display:"grid",
+            placeContent:"center"
+          }}>
+           <lottie-player src="https://lottie.host/263ab84d-bb40-487c-92ff-2641d0436695/vWicemBLFI.json" background="#FFFFFF" speed="1" style={{width: "300px", height: "300px"}} loop controls autoplay direction="1" mode="normal"></lottie-player>
+          <h1>nothing</h1>
+          </div>
+        ):(
+          <>
         {filteredHouses.map(house => (
           <Link href={`/dashboard/${house.id}`} key={house.id} legacyBehavior>
             <a className="border p-4 rounded-lg shadow-lg hover:scale-105 transform transition duration-300 ease-in-out">
@@ -79,6 +92,12 @@ export default function Home() {
             </a>
           </Link>
         ))}
+        </>
+      )
+    }
+
+      </div>
+      {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8104217.885019919!2d6.99244191084835!3d7.338435970372511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10613753703e0f21%3A0x2b03c44599829b53!2sCameroon!5e0!3m2!1sen!2scm!4v1716038587219!5m2!1sen!2scm" width="600" height="450" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
       </div>
     </div>
   );

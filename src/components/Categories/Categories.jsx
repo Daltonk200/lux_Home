@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import Filter from '../Filter/Filter';
+// import Filter from '../Filter/Filter';
 
 
 
@@ -27,6 +27,7 @@ export default function Categories() {
     h-[8vh]
     mt-[11vh]
     fixed
+    z-10
     py-5
     px-6
    

@@ -1,5 +1,4 @@
 let reviews = [
-    // Sample reviews
     { houseId: 1, user: 'Alice', rating: 5, comment: 'Amazing place!' },
     { houseId: 2, user: 'Bob', rating: 4, comment: 'Great location!' },
   ];

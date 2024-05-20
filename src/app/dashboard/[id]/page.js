@@ -1,20 +1,18 @@
 'use client'
 import { notFound } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
-async function getHouse(id) {
+async function fetchHouse(id) {
   const res = await fetch(`http://localhost:3000/api/houses?id=${id}`);
   if (!res.ok) {
     throw new Error('Failed to fetch house');
   }
   const house = await res.json();
-  if (!house || house.error) {
-    return null;
-  }
   return house;
 }
 
-async function getReviews(houseId) {
+async function fetchReviews(houseId) {
   const res = await fetch(`/api/reviews?houseId=${houseId}`);
   if (!res.ok) {
     throw new Error('Failed to fetch reviews');
@@ -22,23 +20,32 @@ async function getReviews(houseId) {
   return await res.json();
 }
 
-export default async function HouseDetail({ params }) {
+export default function HouseDetail({ params }) {
   const { id } = params;
-  const house = await getHouse(id);
-
-  if (!house) {
-    notFound();
-  }
-
+  const [house, setHouse] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [newReview, setNewReview] = useState({ user: '', rating: 5, comment: '' });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function fetchReviews() {
-      const reviews = await getReviews(id);
-      setReviews(reviews);
+    async function loadData() {
+      try {
+        const houseData = await fetchHouse(id);
+        if (!houseData || houseData.error) {
+          notFound();
+          return;
+        }
+        setHouse(houseData);
+        const reviewsData = await fetchReviews(id);
+        setReviews(reviewsData);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
     }
-    fetchReviews();
+    loadData();
   }, [id]);
 
   const handleChange = (e) => {
@@ -47,24 +54,32 @@ export default async function HouseDetail({ params }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch('/api/reviews', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...newReview, houseId: id })
-    });
+    try {
+      const res = await fetch('/api/reviews', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...newReview, houseId: id })
+      });
 
-    if (res.ok) {
-      const updatedReviews = await getReviews(id);
-      setReviews(updatedReviews);
-    } else {
-      alert('Failed to add review');
+      if (res.ok) {
+        const updatedReviews = await fetchReviews(id);
+        setReviews(updatedReviews);
+      } else {
+        alert('Failed to add review');
+      }
+    } catch (err) {
+      alert('An error occurred while adding the review');
     }
   };
 
+  if (loading) return <div>loading</div>;
+  
+  if (error) return <div><dotlottie-player src="https://lottie.host/d7c1de9f-aae6-406b-b48d-5c11133a965a/xX2pa79hdA.json" background="transparent" speed="1" style={{width: '300px', height: '300px'}} loop autoplay></dotlottie-player></div>;
+
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 h-screen overflow-y-scroll ">
       <h1 className="text-3xl font-bold mb-6">{house.title}</h1>
-      <img src={house.imageUrl} alt={house.title} className="w-full h-96 object-cover rounded-lg mb-4" />
+      <img src={house.imageUrl} alt={house.title} width={200} height={200} className="w-[12rem] h-96 object-cover rounded-lg mb-4" />
       <p className="text-lg font-bold mt-2">${house.price_per_night} per night</p>
       <p className="text-gray-600">{house.location}</p>
       <p className="mt-4">{house.description}</p>
@@ -109,7 +124,7 @@ export default async function HouseDetail({ params }) {
               name="user"
               value={newReview.user}
               onChange={handleChange}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm text-black"
               required
             />
           </div>
@@ -122,7 +137,7 @@ export default async function HouseDetail({ params }) {
               onChange={handleChange}
               min="1"
               max="5"
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm text-black"
               required
             />
           </div>
@@ -132,7 +147,7 @@ export default async function HouseDetail({ params }) {
               name="comment"
               value={newReview.comment}
               onChange={handleChange}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
+              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm text-black"
               required
             ></textarea>
           </div>

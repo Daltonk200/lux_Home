@@ -30,7 +30,7 @@ export default function SignInPage() {
 
         <Clerk.Field name="identifier" className="space-y-2">
           <Clerk.Label className="text-sm font-medium">Email</Clerk.Label>
-          <Clerk.Input className="w-full border rounded-md py-1.5 px-2.5 text-gray-300"/>
+          <Clerk.Input className="w-full border rounded-md py-1.5 px-2.5 text-black"/>
           <Clerk.FieldError className="block text-red-500 text-sm" />
         </Clerk.Field>
 
@@ -57,7 +57,7 @@ export default function SignInPage() {
 
           <Clerk.Field name="code" className="space-y-2">
             <Clerk.Label className="text-sm font-medium">Email code</Clerk.Label>
-            <Clerk.Input className="w-full border rounded-md py-1.5 px-2.5 text-gray-300 mb-9"/>
+            <Clerk.Input className="w-full border rounded-md py-1.5 px-2.5 text-black mb-9"/>
             <Clerk.FieldError className="block text-red-500 text-sm" />
           </Clerk.Field>
 
@@ -90,7 +90,7 @@ export default function SignInPage() {
 
           <Clerk.Field name="code" className="space-y-2">
             <Clerk.Label className="text-sm font-medium">Email code</Clerk.Label>
-            <Clerk.Input className="w-full border rounded-md py-1.5 px-2.5 text-gray-300"/>
+            <Clerk.Input className="w-full border rounded-md py-1.5 px-2.5 text-black"/>
             <Clerk.FieldError className="block text-red-500 text-sm"/>
           </Clerk.Field>
 
@@ -119,13 +119,13 @@ export default function SignInPage() {
 
         <Clerk.Field name="password" className="space-y-2">
           <Clerk.Label className="text-sm font-medium">New password</Clerk.Label>
-          <Clerk.Input  className="w-full border rounded-md py-1.5 px-2.5 text-gray-300"/>
+          <Clerk.Input  className="w-full border rounded-md py-1.5 px-2.5 text-black"/>
           <Clerk.FieldError className="block text-red-500 text-sm"/>
         </Clerk.Field>
 
         <Clerk.Field name="confirmPassword" className="space-y-2">
           <Clerk.Label className="text-sm font-medium">Confirm password</Clerk.Label>
-          <Clerk.Input  className="w-full border rounded-md py-1.5 px-2.5 text-gray-300"/>
+          <Clerk.Input  className="w-full border rounded-md py-1.5 px-2.5 text-black"/>
           <Clerk.FieldError className="block text-red-500 text-sm"/>
         </Clerk.Field>
 

@@ -3,6 +3,7 @@ import "./globals.css";
 // import { useNavigation } from 'next/navigation'; // Importing useNavigation
 import { ClerkProvider } from "@clerk/nextjs";
 import NavBar from "@/components/NavBar/NavBar";
+import Context from "@/components/Context";
 
 const font = Nunito({ subsets: ["latin"] });
 
@@ -21,10 +22,12 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={font.className}>
           {/* !hideNavBar &&  <NavBar/>}*/}
-          
-          <div className='min-h-screen flex flex-col   '>
+          <Context>
+          <div className='min-h-screen flex flex-col   '>  
           {children}
           </div>
+          </Context>
+          <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module" defer></script> 
         </body>
       </html>
     </ClerkProvider>

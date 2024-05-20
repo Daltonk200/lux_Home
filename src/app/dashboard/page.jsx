@@ -11,10 +11,16 @@ export default function page() {
     <>
     <NavBar />
     <Categories/>
-      <main className='flex w-full h-[80vh] mt-[19vh] '>
+      
+      <div className="flex" style={{
+         alignItems:"start"
+
+      }} >
+         
          <Sidebar/>
          <Main/>
-      </main> 
+      </div>
+
       </>
  )
 }
