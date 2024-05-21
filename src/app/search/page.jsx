@@ -41,8 +41,10 @@ export default function Home() {
 
   return (
     <div className="container mx-auto p-4 ">
-      <h1 className="text-3xl font-bold mb-6">Available Houses</h1>
-      <div className="mb-4 flex outline justify-between items-center">
+      <div className="mb-4 flex justify-between items-center container">
+       <Link href='/dashboard'>
+       <h1 className="text-3xl font-bold mb-6">Available Houses</h1>
+        </Link>      
         <input
           type="text"
           value={search}
@@ -67,7 +69,7 @@ export default function Home() {
           className=" border p-2 rounded-lg text-black"
         />
       </div>
-      <div className='h-screen overflow-y-scroll container'>
+      <div className='h-screen overflow-y-scroll container pb-[10rem]'>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">{
         filteredHouses.length === 0?(
           <div style={{

@@ -16,11 +16,13 @@ const deleted = (id)=>{
  }
 }
   return (
-    <div className="container float-right p-4 h-screen overflow-y-scroll pb-[10rem] ">
+    <div className="container mx-auto p-4 ">
+      <h1 className="text-3xl font-bold mb-6">Your Favorites Houses</h1>
+    <div className="container h-screen overflow-y-scroll pb-[10rem] ">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {favorites.map(items=>(
           <>
-         <Link key={items.id} href={``} legacyBehavior >
+         <Link key={items.id} href={`/dashboard/${items.id}`} legacyBehavior >
          <a className="border p-4 rounded-lg shadow-lg overflow-hidden group">
            <div className="relative overflow-hidden h-48 rounded-t-lg">
              <img
@@ -45,6 +47,7 @@ const deleted = (id)=>{
         </>
         ))}
            </div>
+    </div>
     </div>
   );
 }

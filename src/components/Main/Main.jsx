@@ -3,13 +3,15 @@ import React, { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import { homeContext } from '../Context';
 
+
 const Houses = () => {
   const [favorites,setFavorites] = useContext(homeContext);
   console.log(favorites);
+
   const addToFavorites = (item)=>{
     const  liked = favorites.find(items=>items.id === item.id);
     if(liked){
-         alert('Alredyt in Favorites') 
+         alert('Already in Favorites') 
     }else{
       setFavorites(prev=>[...prev,item])
       alert('Added to favorites')
@@ -30,9 +32,8 @@ const Houses = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {houses.map(house => (
           <>
-          {/* <Link className='' key={house.id} href={``} legacyBehavior > */}
            
-            <a className="border p-4 rounded-lg shadow-lg overflow-hidden group">
+            <div className="border p-4 rounded-lg shadow-lg overflow-hidden group">
               
               <div className="relative  overflow-hidden h-48 rounded-t-lg">
               <label className="ui-bookmark z-20 absolute right-3"  onClick={()=> addToFavorites(house)}>
@@ -45,30 +46,31 @@ const Houses = () => {
                        height="25"
                        width="25"
                        xmlns="http://www.w3.org/2000/svg"
-                     >
+                       >
                        <path
                          d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"
                          fill-rule="evenodd"
-                       ></path>
+                         ></path>
                      </svg>
                    </div>
               </label>
                 {/* <span className='absolute top-0 right-3 z-10' onClick={()=> addToFavorites(house)} >
                 <i class="fa-solid fa-heart"></i>             
                 </span> */}
+              <Link className='' key={house.id} href={`/dashboard/${house.id}`} legacyBehavior >
                 <img
                   src={house.imageUrl}
                   alt={house.title}
                   className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
                 />
+              </Link>
               </div>
               <h2 className="text-xl font-semibold mt-2">{house.title}</h2>
               <p className="text-gray-700">{house.description}</p>
               <p className="text-lg font-bold mt-2">${house.price_per_night} per night</p>
               <p className="text-gray-600">{house.location}</p>
-            </a>
+            </div>
 
-          {/* </Link> */}
           
           </>
         ))}

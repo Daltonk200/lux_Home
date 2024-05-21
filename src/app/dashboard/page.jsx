@@ -10,7 +10,7 @@ export default function page() {
   return (
     <>
     <NavBar />
-    <Categories/>
+    {/* <Categories/> */}
       
       <div className="flex" style={{
          alignItems:"start"
