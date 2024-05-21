@@ -107,7 +107,7 @@ export default function HouseDetail({ params }) {
     
     <div className="container mx-auto p-4 h-screen overflow-y-scroll ">
       <h1 className="text-3xl font-bold mb-6">{house.title}</h1>
-      <img src={house.imageUrl} alt={house.title} width={300} height={200} className="w-[70%] h-96 object-cover rounded-lg mb-4" />
+      <Image src={house.imageUrl} alt={house.title} width={300} height={200} className="w-[70%] h-96 object-cover rounded-lg mb-4" />
       <p className="text-lg font-bold mt-2">${house.price_per_night} per night</p>
       <p className="text-gray-600">{house.location}</p>
       <p className="mt-4">{house.description}</p>

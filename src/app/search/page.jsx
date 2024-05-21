@@ -1,6 +1,8 @@
 'use client'
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+
 
 async function fetchHouses() {
   const res = await fetch('/api/houses');
@@ -86,7 +88,7 @@ export default function Home() {
         {filteredHouses.map(house => (
           <Link href={`/dashboard/${house.id}`} key={house.id} legacyBehavior>
             <a className="border p-4 rounded-lg shadow-lg hover:scale-105 transform transition duration-300 ease-in-out">
-              <img src={house.imageUrl} alt={house.title} className="w-full h-48 object-cover rounded-t-lg" />
+              <Image src={house.imageUrl} alt={house.title} className="w-full h-48 object-cover rounded-t-lg" />
               <h2 className="text-xl font-semibold mt-2">{house.title}</h2>
               <p className="text-gray-700">{house.description}</p>
               <p className="text-lg font-bold mt-2">${house.price_per_night} per night</p>

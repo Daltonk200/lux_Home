@@ -2,6 +2,7 @@
 import React, { useContext } from 'react'
 import { homeContext } from '@/components/Context';
 import Link from 'next/link';
+import Image from 'next/image';
 
 function page() {
 const [favorites,setFavorites] = useContext(homeContext);
@@ -25,7 +26,7 @@ const deleted = (id)=>{
          <Link key={items.id} href={`/dashboard/${items.id}`} legacyBehavior >
          <a className="border p-4 rounded-lg shadow-lg overflow-hidden group">
            <div className="relative overflow-hidden h-48 rounded-t-lg">
-             <img
+             <Image
                src={items.imageUrl}
                alt={items.title}
                className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"

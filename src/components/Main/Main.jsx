@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import { homeContext } from '../Context';
-
+import Image from 'next/image';
 
 const Houses = () => {
   const [favorites,setFavorites] = useContext(homeContext);
@@ -58,7 +58,7 @@ const Houses = () => {
                 <i class="fa-solid fa-heart"></i>             
                 </span> */}
               <Link className='' key={house.id} href={`/dashboard/${house.id}`} legacyBehavior >
-                <img
+                <Image
                   src={house.imageUrl}
                   alt={house.title}
                   className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
