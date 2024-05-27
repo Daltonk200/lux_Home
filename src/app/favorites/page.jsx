@@ -4,7 +4,7 @@ import { homeContext } from '@/components/Context';
 import Link from 'next/link';
 import Image from 'next/image';
 
-function page() {
+function Page() {
 const [favorites,setFavorites] = useContext(homeContext);
 const deleted = (id)=>{
  const findId = favorites.findIndex(house=>house.id === id);
@@ -29,6 +29,8 @@ const deleted = (id)=>{
              <Image
                src={items.imageUrl}
                alt={items.title}
+               width={300}
+               height={200}
                className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
              />
            </div>
@@ -53,4 +55,4 @@ const deleted = (id)=>{
   );
 }
 
-export default page
+export default Page

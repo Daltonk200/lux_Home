@@ -6,10 +6,6 @@ const isProtectedRoute = createRouteMatcher([
 
 export default clerkMiddleware((auth, req) => {
   if (!auth().userId && isProtectedRoute(req)) {
-
-    // Add custom logic to run before redirecting
-    // alert('Please sign-up first ');
-
     return auth().redirectToSignIn();
   }
 });

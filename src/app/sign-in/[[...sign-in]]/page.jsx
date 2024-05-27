@@ -2,11 +2,13 @@
 
 import * as Clerk from '@clerk/elements/common'
 import * as SignIn from '@clerk/elements/sign-in'
+import NavBar from '@/components/NavBar/NavBar'
 
 export default function SignInPage() {
   return (
-    
-  <section className='bg-custom-bg bg-cover bg-center flex items-center justify-center w-full h-screen '>  
+    <>
+    <NavBar/>
+    <section className='bg-custom-bg bg-cover bg-center flex items-center justify-center w-full h-screen '>  
     <SignIn.Root>
       <SignIn.Step name="start"
        className="py-10 px-8  border space-y-6 bg-white/10 backdrop-blur-lg rounded-lg shadow-lg p-8 w-96"
@@ -134,6 +136,7 @@ export default function SignInPage() {
         >Reset password</SignIn.Action>
       </SignIn.Step>
     </SignIn.Root>
-    </section>  
+    </section> 
+    </> 
   )
 }

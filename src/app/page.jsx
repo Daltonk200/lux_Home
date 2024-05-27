@@ -13,7 +13,7 @@ export default function Home() {
       </SignedIn>
       
       <SignedOut>
-      <h1 className=" text-xl w-[75%] text-red-400 text-center line-h">Welcome to Lux Home please login to enjoy the site </h1>
+      <h1 className=" sm:text-lg md:text-2xl lg:text-8xl xl:text-6xl 2xl:text-8xl  w-[75%] text-red-400 text-center line-h">Welcome to Lux Home please login to enjoy the site </h1>
       </SignedOut>
      </div>
      </>

@@ -80,15 +80,20 @@ export default function Home() {
             display:"grid",
             placeContent:"center"
           }}>
-           <lottie-player src="https://lottie.host/263ab84d-bb40-487c-92ff-2641d0436695/vWicemBLFI.json" background="#FFFFFF" speed="1" style={{width: "300px", height: "300px"}} loop controls autoplay direction="1" mode="normal"></lottie-player>
-          <h1>nothing</h1>
+            <Image src="/not-foung-img/image.png" width={100} height={100} alt='not-found'  className='mb-12'/>
+          <h1 className='text-center text-red-400'>Nothing Found </h1> 
           </div>
         ):(
           <>
         {filteredHouses.map(house => (
           <Link href={`/dashboard/${house.id}`} key={house.id} legacyBehavior>
             <a className="border p-4 rounded-lg shadow-lg hover:scale-105 transform transition duration-300 ease-in-out">
-              <Image src={house.imageUrl} alt={house.title} className="w-full h-48 object-cover rounded-t-lg" />
+              <Image
+               src={house.imageUrl}
+               alt={house.title} 
+               width={300}
+               height={200}
+               className="w-full h-48 object-cover rounded-t-lg" />
               <h2 className="text-xl font-semibold mt-2">{house.title}</h2>
               <p className="text-gray-700">{house.description}</p>
               <p className="text-lg font-bold mt-2">${house.price_per_night} per night</p>

@@ -61,6 +61,8 @@ const Houses = () => {
                 <Image
                   src={house.imageUrl}
                   alt={house.title}
+                  width={300}
+                  height={200}
                   className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
                 />
               </Link>

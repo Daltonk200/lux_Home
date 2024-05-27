@@ -9,7 +9,7 @@ function NavBar() {
     <nav className='flex items-center justify-between lg:px-8 p-6 h-20  fixed z-10 w-full'>
     <div className='flex lg:flex-1'>
                 <a href="/" className='-m-1.5  '>
-                    <Image src={'/Space_Studio-removebg-preview.png'} alt={logo} width={50} height={0}  className='w-[8rem]'/>
+                    <Image src={'/Space_Studio-removebg-preview.png'}  width={50} height={0} alt='logo'  className='w-[8rem]'/>
                 </a>
             </div>
 

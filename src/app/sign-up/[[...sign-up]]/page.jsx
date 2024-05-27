@@ -1,11 +1,14 @@
 'use client'
 
+import NavBar from '@/components/NavBar/NavBar'
 import * as Clerk from '@clerk/elements/common'
 import * as SignUp from '@clerk/elements/sign-up'
 
 export default function SignUpPage() {
   return (
-<section className='bg-custom-bg bg-cover bg-center flex items-center justify-center w-full h-screen '>  
+    <> 
+    <NavBar/> 
+    <section className='bg-custom-bg bg-cover bg-center flex items-center justify-center w-full  h-screen '>  
     <SignUp.Root>
       <SignUp.Step name="start"
       className="py-10 px-8  border space-y-6 bg-white/10 backdrop-blur-lg rounded-lg shadow-lg p-8 w-96"
@@ -105,6 +108,7 @@ export default function SignUpPage() {
         </SignUp.Strategy>
       </SignUp.Step>
     </SignUp.Root>
-</section>    
+</section>  
+</>  
   )
 }

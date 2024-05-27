@@ -73,41 +73,20 @@ export default function HouseDetail({ params }) {
     }
   };
 
-  if (loading) return( <div>
-    <dotlottie-player
-    src="https://lottie.host/1b1f8d41-39d5-4d29-9341-3803af6067ae/ncNHxwuYrL.json" 
-    background="transparent" 
-    speed="1" 
-    style={{width: '300px', height: '300px'}} 
-    direction="1" 
-    playMode="normal" 
-    loop 
-    controls
-    autoplay></dotlottie-player>
-  </div>
-  );
-  
-  if (error) return(
-     <div>
-     <dotlottie-player 
-     src="https://lottie.host/1b1f8d41-39d5-4d29-9341-3803af6067ae/ncNHxwuYrL.json" 
-     background="transparent" 
-     speed="1" 
-     style={{width: '300px', height: '300px'}} 
-     direction="1" 
-     playMode="normal" 
-     loop 
-     controls 
-     autoplay></dotlottie-player>
-      {/* <p>{error}</p> */}
-      </div>
-  );
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!house) return <div>House not found</div>;
 
   return (
     
     <div className="container mx-auto p-4 h-screen overflow-y-scroll ">
       <h1 className="text-3xl font-bold mb-6">{house.title}</h1>
-      <Image src={house.imageUrl} alt={house.title} width={300} height={200} className="w-[70%] h-96 object-cover rounded-lg mb-4" />
+      <Image 
+      src={house.imageUrl} 
+      alt={house.title} 
+      width={500} 
+      height={200} 
+      className="w-[70%] h-96 object-cover rounded-lg mb-4" />
       <p className="text-lg font-bold mt-2">${house.price_per_night} per night</p>
       <p className="text-gray-600">{house.location}</p>
       <p className="mt-4">{house.description}</p>
