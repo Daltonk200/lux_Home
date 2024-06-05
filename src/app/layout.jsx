@@ -27,6 +27,7 @@ export default function RootLayout({ children }) {
           {children}
           </div>
           </Context>
+          <script src="//code.tidio.co/fggbkjmjar5xubslkapfq7zq5kwrsyal.js" async></script>
           <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module" defer></script> 
         </body>
       </html>
